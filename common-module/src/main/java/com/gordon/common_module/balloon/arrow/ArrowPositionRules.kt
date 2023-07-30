@@ -16,24 +16,8 @@
 
 package com.gordon.common_module.balloon.arrow
 
-/**
- * ArrowPositionRules determines the position of the arrow depending on the aligning rules.
- *
- * [ArrowPositionRules.ALIGN_BALLOON]: Align the arrow position depending on the balloon popup body.
- * [ArrowPositionRules.ALIGN_ANCHOR]: Align the arrow position depending on an anchor.
- */
-public enum class ArrowPositionRules {
-  /**
-   * Align the arrow position depending on the balloon popup body.
-   *
-   * If [Balloon.Builder.arrowPosition] is 0.5, the arrow will be located in the middle of the tooltip.
-   */
+enum class ArrowPositionRules {
   ALIGN_BALLOON,
 
-  /**
-   * Align the arrow position depending on an anchor.
-   *
-   * If [Balloon.Builder.arrowPosition] is 0.5, the arrow will be located in the middle of an anchor.
-   */
   ALIGN_ANCHOR
 }

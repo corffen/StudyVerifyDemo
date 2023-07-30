@@ -244,7 +244,8 @@ public class Balloon private constructor(
                 @SuppressLint("NewApi")
                 when (builder.arrowOrientation) {
                     ArrowOrientation.BOTTOM -> {
-                        rotation = 180f
+                        rotation =
+                            if (builder.arrowDrawableDirection == ArrowOrientation.BOTTOM) 0f else 180f
                         x = getArrowConstraintPositionX(anchor)
                         y = binding.balloonCard.y + binding.balloonCard.height - SIZE_ARROW_BOUNDARY
                         ViewCompat.setElevation(this, builder.arrowElevation)
@@ -260,7 +261,8 @@ public class Balloon private constructor(
                     }
 
                     ArrowOrientation.TOP -> {
-                        rotation = 0f
+                        rotation =
+                            if (builder.arrowDrawableDirection == ArrowOrientation.BOTTOM) 180f else 0f
                         x = getArrowConstraintPositionX(anchor)
                         y = binding.balloonCard.y - builder.arrowSize + SIZE_ARROW_BOUNDARY
                         if (builder.arrowColorMatchBalloon) {
@@ -1284,6 +1286,9 @@ public class Balloon private constructor(
         public var arrowDrawable: Drawable? = null
 
         @set:JvmSynthetic
+        public var arrowDrawableDirection: ArrowOrientation = ArrowOrientation.TOP
+
+        @set:JvmSynthetic
         public var arrowLeftPadding: Int = 0
 
         @set:JvmSynthetic
@@ -1737,6 +1742,10 @@ public class Balloon private constructor(
             if (value != null && arrowSize == BalloonSizeSpec.WRAP) {
                 arrowSize = max(value.intrinsicWidth, value.intrinsicHeight)
             }
+        }
+
+        public fun setArrowDrawableDirection(value: ArrowOrientation): Builder = apply {
+            this.arrowDrawableDirection = value
         }
 
         public fun setArrowDrawableResource(@DrawableRes value: Int): Builder = apply {

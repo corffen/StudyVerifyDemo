@@ -16,25 +16,9 @@
 
 package com.gordon.common_module.balloon.arrow
 
-/** ArrowOrientation determines the orientation of the arrow. */
-public enum class ArrowOrientation {
-  BOTTOM,
-  TOP,
-  START,
-  END;
-
-  internal companion object {
-    /** Return [ArrowOrientation] depending on the [isRtlLayout].] */
-    internal fun ArrowOrientation.getRTLSupportOrientation(isRtlLayout: Boolean): ArrowOrientation {
-      return if (!isRtlLayout) {
-        this
-      } else {
-        when (this) {
-          START -> END
-          END -> START
-          else -> this
-        }
-      }
-    }
-  }
+enum class ArrowOrientation {
+    BOTTOM,
+    TOP,
+    START,
+    END;
 }
