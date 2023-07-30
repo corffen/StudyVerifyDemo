@@ -965,7 +965,6 @@ public class Balloon private constructor(
         }
     }
 
-    /** dismiss the popup menu. */
     public fun dismiss() {
         if (this.isShowing) {
             val dismissWindow: () -> Unit = {
@@ -1462,54 +1461,34 @@ public class Balloon private constructor(
             this.width = context.dimenPixel(value)
         }
 
-        /**
-         * sets the minimum size of the width.
-         * this functionality works only with the [BalloonSizeSpec.WRAP].
-         */
         public fun setMinWidth(value: Int): Builder = apply {
             this.minWidth = value.dp
         }
 
-        /**
-         * sets the minimum size of the width using a dimension resource.
-         * this functionality works only with the [BalloonSizeSpec.WRAP].
-         */
         public fun setMinWidthResource(@DimenRes value: Int): Builder = apply {
             this.minWidth = context.dimenPixel(value)
         }
 
-        /**
-         * sets the maximum size of the width.
-         * this functionality works only with the [BalloonSizeSpec.WRAP].
-         */
         public fun setMaxWidth(value: Int): Builder = apply {
             this.maxWidth = value.dp
         }
 
-        /**
-         * sets the maximum size of the width using a dimension resource.
-         * this functionality works only with the [BalloonSizeSpec.WRAP].
-         */
         public fun setMaxWidthResource(@DimenRes value: Int): Builder = apply {
             this.maxWidth = context.dimenPixel(value)
         }
 
-        /** sets the width size by the display screen size ratio. */
         public fun setWidthRatio(
             @FloatRange(from = 0.0, to = 1.0) value: Float
         ): Builder = apply { this.widthRatio = value }
 
-        /** sets the minimum width size by the display screen size ratio. */
         public fun setMinWidthRatio(
             @FloatRange(from = 0.0, to = 1.0) value: Float
         ): Builder = apply { this.minWidthRatio = value }
 
-        /** sets the maximum width size by the display screen size ratio. */
         public fun setMaxWidthRatio(
             @FloatRange(from = 0.0, to = 1.0) value: Float
         ): Builder = apply { this.maxWidthRatio = value }
 
-        /** sets the height size. */
         public fun setHeight(value: Int): Builder = apply {
             require(
                 value > 0 || value == BalloonSizeSpec.WRAP
@@ -1518,7 +1497,6 @@ public class Balloon private constructor(
         }
 
 
-        /** sets the padding on the balloon content all directions. */
         public fun setPadding(value: Int): Builder = apply {
             setPaddingLeft(value)
             setPaddingTop(value)
@@ -1526,7 +1504,6 @@ public class Balloon private constructor(
             setPaddingBottom(value)
         }
 
-        /** sets the padding on the balloon content all directions using dimension resource. */
         public fun setPaddingResource(@DimenRes value: Int): Builder = apply {
             val padding = context.dimenPixel(value)
             this.paddingLeft = padding
@@ -1535,67 +1512,54 @@ public class Balloon private constructor(
             this.paddingBottom = padding
         }
 
-        /** sets the horizontal (right and left) padding on the balloon content. */
         public fun setPaddingHorizontal(value: Int): Builder = apply {
             setPaddingLeft(value)
             setPaddingRight(value)
         }
 
-        /** sets the horizontal (right and left) padding on the balloon content using dimension resource. */
         public fun setPaddingHorizontalResource(@DimenRes value: Int): Builder = apply {
             setPaddingLeftResource(value)
             setPaddingRightResource(value)
         }
 
-        /** sets the vertical (top and bottom) padding on the balloon content. */
         public fun setPaddingVertical(value: Int): Builder = apply {
             setPaddingTop(value)
             setPaddingBottom(value)
         }
 
-        /** sets the vertical (top and bottom) padding on the balloon content using dimension resource. */
         public fun setPaddingVerticalResource(@DimenRes value: Int): Builder = apply {
             setPaddingTopResource(value)
             setPaddingBottomResource(value)
         }
 
-        /** sets the left padding on the balloon content. */
         public fun setPaddingLeft(value: Int): Builder = apply { this.paddingLeft = value.dp }
 
-        /** sets the left padding on the balloon content using dimension resource. */
         public fun setPaddingLeftResource(@DimenRes value: Int): Builder = apply {
             this.paddingLeft = context.dimenPixel(value)
         }
 
-        /** sets the top padding on the balloon content. */
         public fun setPaddingTop(value: Int): Builder = apply { this.paddingTop = value.dp }
 
-        /** sets the top padding on the balloon content using dimension resource. */
         public fun setPaddingTopResource(@DimenRes value: Int): Builder = apply {
             this.paddingTop = context.dimenPixel(value)
         }
 
-        /** sets the right padding on the balloon content. */
         public fun setPaddingRight(value: Int): Builder = apply {
             this.paddingRight = value.dp
         }
 
-        /** sets the right padding on the balloon content using dimension resource. */
         public fun setPaddingRightResource(@DimenRes value: Int): Builder = apply {
             this.paddingRight = context.dimenPixel(value)
         }
 
-        /** sets the bottom padding on the balloon content. */
         public fun setPaddingBottom(value: Int): Builder = apply {
             this.paddingBottom = value.dp
         }
 
-        /** sets the bottom padding on the balloon content using dimension resource. */
         public fun setPaddingBottomResource(@DimenRes value: Int): Builder = apply {
             this.paddingBottom = context.dimenPixel(value)
         }
 
-        /** sets the margin on the balloon all directions. */
         public fun setMargin(value: Int): Builder = apply {
             setMarginLeft(value)
             setMarginTop(value)
@@ -1603,7 +1567,6 @@ public class Balloon private constructor(
             setMarginBottom(value)
         }
 
-        /** sets the margin on the balloon all directions using a dimension resource. */
         public fun setMarginResource(@DimenRes value: Int): Builder = apply {
             val margin = context.dimenPixel(value)
             this.marginLeft = margin
@@ -1612,75 +1575,61 @@ public class Balloon private constructor(
             this.marginBottom = margin
         }
 
-        /** sets the horizontal (left and right) margins on the balloon. */
         public fun setMarginHorizontal(value: Int): Builder = apply {
             setMarginLeft(value)
             setMarginRight(value)
         }
 
-        /** sets the horizontal (left and right) margins on the balloon using a dimension resource. */
         public fun setMarginHorizontalResource(@DimenRes value: Int): Builder = apply {
             setMarginLeftResource(value)
             setMarginRightResource(value)
         }
 
-        /** sets the vertical (top and bottom) margins on the balloon. */
         public fun setMarginVertical(value: Int): Builder = apply {
             setMarginTop(value)
             setMarginBottom(value)
         }
 
-        /** sets the vertical (top and bottom) margins on the balloon using a dimension resource. */
         public fun setMarginVerticalResource(@DimenRes value: Int): Builder = apply {
             setMarginTopResource(value)
             setMarginBottomResource(value)
         }
 
-        /** sets the left margin on the balloon. */
         public fun setMarginLeft(value: Int): Builder = apply {
             this.marginLeft = value.dp
         }
 
-        /** sets the left margin on the balloon using dimension resource. */
         public fun setMarginLeftResource(@DimenRes value: Int): Builder = apply {
             this.marginLeft = context.dimenPixel(value)
         }
 
-        /** sets the top margin on the balloon. */
         public fun setMarginTop(value: Int): Builder = apply {
             this.marginTop = value.dp
         }
 
-        /** sets the top margin on the balloon using dimension resource. */
         public fun setMarginTopResource(@DimenRes value: Int): Builder = apply {
             this.marginTop = context.dimenPixel(value)
         }
 
-        /** sets the right margin on the balloon. */
         public fun setMarginRight(value: Int): Builder = apply {
             this.marginRight = value.dp
         }
 
-        /** sets the right margin on the balloon using dimension resource. */
         public fun setMarginRightResource(@DimenRes value: Int): Builder = apply {
             this.marginRight = context.dimenPixel(value)
         }
 
-        /** sets the bottom margin on the balloon. */
         public fun setMarginBottom(value: Int): Builder = apply {
             this.marginBottom = value.dp
         }
 
-        /** sets the bottom margin on the balloon using dimension resource. */
         public fun setMarginBottomResource(@DimenRes value: Int): Builder = apply {
             this.marginBottom = context.dimenPixel(value)
         }
 
-        /** sets the visibility of the arrow. */
         public fun setIsVisibleArrow(value: Boolean): Builder =
             apply { this.isVisibleArrow = value }
 
-        /** sets a color of the arrow. */
         public fun setArrowColor(@ColorInt value: Int): Builder = apply { this.arrowColor = value }
 
         public fun setArrowColorMatchBalloon(value: Boolean): Builder = apply {
@@ -1878,24 +1827,13 @@ public class Balloon private constructor(
             this.isStatusBarVisible = value
         }
 
-        /**
-         * sets whether the popup window will be attached in the decor frame of its parent window.
-         * If you want to show up balloon on your DialogFragment, it's recommended to use with true. (#131)
-         */
         public fun setIsAttachedInDecor(value: Boolean): Builder = apply {
             this.isAttachedInDecor = value
         }
 
-        /**
-         * sets the [LifecycleOwner] for dismissing automatically when the [LifecycleOwner] is destroyed.
-         * It will prevents memory leak : [Avoid Memory Leak](https://github.com/skydoves/balloon#avoid-memory-leak)
-         */
         public fun setLifecycleOwner(value: LifecycleOwner?): Builder =
             apply { this.lifecycleOwner = value }
 
-        /**
-         * sets the [LifecycleObserver] for observing the the [lifecycleOwner]'s lifecycle states.
-         */
         public fun setLifecycleObserver(value: LifecycleObserver): Builder =
             apply { this.lifecycleObserver = value }
 
@@ -1918,10 +1856,6 @@ public class Balloon private constructor(
             this.balloonOverlayAnimationStyle = value
         }
 
-        /**
-         * sets the duration of the circular animation.
-         * this option only works with [BalloonAnimation.CIRCULAR] value in [setBalloonAnimation].
-         */
         public fun setCircularDuration(value: Long): Builder = apply {
             this.circularDuration = value
         }
