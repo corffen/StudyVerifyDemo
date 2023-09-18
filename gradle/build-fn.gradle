@@ -1,0 +1,27 @@
+/**
+ * 获取本地(非版本控制)配置
+ */
+Properties readLocalProperties() {
+    Properties properties = new Properties()
+    File propertyFile = new File(rootDir.getAbsolutePath() + "/local.properties")
+    if (propertyFile.exists()) {
+        properties.load(propertyFile.newDataInputStream())
+    }
+    return properties
+}
+
+/**
+ * 将本地配置插入Gradle.ext扩展变量中, 无需多次读取
+ */
+void injectLocalPropertiesToGradleExt() {
+    gradle.ext.localProperties = readLocalProperties()
+}
+
+ext {
+    readLocalProperties = this.&readLocalProperties
+    injectLocalPropertiesToGradleExt = this.&injectLocalPropertiesToGradleExt
+    includeSub = { catName, moduleName ->
+        include(":${catName}-${moduleName}")
+        project(":${catName}-${moduleName}").projectDir = new File("./${catName}/${moduleName}")
+    }
+}

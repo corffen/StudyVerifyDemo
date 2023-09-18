@@ -18,6 +18,10 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+apply from: './gradle/build-fn.gradle'
+// 将本地配置以 localProperties 作为key插入到Gradle.ext中
+injectLocalPropertiesToGradleExt()
 rootProject.name = "StudyVerifyDemo"
 include ':app'
 include ':common-module'
+includeSub('widget','progressview')

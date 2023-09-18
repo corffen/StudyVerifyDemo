@@ -10,7 +10,6 @@ import com.gordon.studyverifydemo.databinding.ActivityGuideBinding
 
 class GuideActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGuideBinding
-
     private val wordBalloon by lazy { BalloonUtils.getWordBalloon(this, this) }
     private val first = true
     private var step = 1
