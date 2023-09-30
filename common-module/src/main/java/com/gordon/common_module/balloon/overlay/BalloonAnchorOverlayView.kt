@@ -80,14 +80,14 @@ class BalloonAnchorOverlayView @JvmOverloads constructor(
         invalidate()
     }
 
-    override fun dispatchDraw(canvas: Canvas?) {
+    override fun dispatchDraw(canvas: Canvas) {
         if (invalidated || bitmap == null || bitmap?.isRecycled == true) {
             prepareBitmap()
         }
 
         val bitmap = this.bitmap
         if (bitmap != null && !bitmap.isRecycled) {
-            canvas?.drawBitmap(bitmap, 0f, 0f, null)
+            canvas.drawBitmap(bitmap, 0f, 0f, null)
         }
     }
 

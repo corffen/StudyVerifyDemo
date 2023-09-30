@@ -25,3 +25,4 @@ rootProject.name = "StudyVerifyDemo"
 include ':app'
 include ':common-module'
 includeSub('widget','progressview')
+include ':myplugin'

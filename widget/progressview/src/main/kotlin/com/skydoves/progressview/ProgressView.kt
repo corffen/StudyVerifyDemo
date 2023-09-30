@@ -28,6 +28,7 @@ import android.graphics.RectF
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -55,6 +56,7 @@ public inline fun progressView(
 ): ProgressView =
     ProgressView.Builder(context).apply(block).build()
 
+private const val TAG = "ProgressView"
 /** ProgressView is a progress bar with a flexible text and animations. */
 public class ProgressView : FrameLayout {
 
@@ -452,6 +454,7 @@ public class ProgressView : FrameLayout {
     }
 
     private fun updateHighlightView() {
+        Log.w(TAG, "updateHighlightView: ")
         val params = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
         if (max <= progress) {
             if (isVertical()) {
@@ -473,6 +476,7 @@ public class ProgressView : FrameLayout {
     }
 
     private fun updateLabel() {
+        Log.w(TAG, "updateLabel: ")
         if (labelGravity != null) {
             this.labelView.layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -576,7 +580,9 @@ public class ProgressView : FrameLayout {
     }
 
     private fun autoAnimate() {
+        Log.w(TAG, "autoAnimate: ", )
         if (this.autoAnimate) {
+            Log.w(TAG, "autoAnimate: auto")
             progressAnimate()
         }
     }

@@ -3,17 +3,18 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
 }
-
+def versions = rootProject.ext.versions
+def libs = rootProject.ext.dependencies
 android {
     namespace 'com.gordon.studyverifydemo'
-    compileSdk 33
+    compileSdk versions.compileSdk
 
     defaultConfig {
         applicationId "com.gordon.studyverifydemo"
-        minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,16 +40,14 @@ android {
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.fragment:fragment-ktx:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    implementation 'androidx.core:core-splashscreen:1.0.1'
-    def lifecycle_version = "2.4.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation libs.androidxCoreKtx
+    implementation libs.androidxCompat
+    implementation libs.material
+    implementation libs.frgKtx
+    implementation libs.constraint
+    implementation libs.splashScreen
+    implementation libs.viewmodel
+    implementation libs.viewmodelKtx
 
     implementation project(path: ':widget-progressview')
     implementation project(path: ':common-module')

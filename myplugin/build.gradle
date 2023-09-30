@@ -1,0 +1,16 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
+gradlePlugin{
+    plugins{
+        DependenciesPlugin{
+            id = 'com.gordon.myplugin.dependencies'
+            implementationClass = 'com.gordon.myplugin.DependenciesPlugin'
+        }
+    }
+}
+
+dependencies {
+//    implementation 'com.android.tools.build:gradle:7.4.0'
+}
