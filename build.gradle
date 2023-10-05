@@ -6,3 +6,14 @@ plugins {
 }
 
 apply from:"./config.gradle"
+
+this.getProjects()
+
+def getProjects(){
+    println "<===================="
+    println " Root Project Start"
+    println "<===================="
+    this.getAllprojects().eachWithIndex { Project entry, int index ->
+        println "project is $entry,index = $index"
+    }
+}

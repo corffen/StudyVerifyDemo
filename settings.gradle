@@ -25,4 +25,5 @@ rootProject.name = "StudyVerifyDemo"
 include ':app'
 include ':common-module'
 includeSub('widget','progressview')
+includeSub('widget','circularpb')
 include ':myplugin'
